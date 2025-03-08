@@ -12,8 +12,8 @@ using ToDoListApi.Infrastructure.Persistence;
 namespace ToDoListApi.Infrastructure.Migrations
 {
     [DbContext(typeof(ToDoListDbContext))]
-    [Migration("20250308100954_AutoIncrement")]
-    partial class AutoIncrement
+    [Migration("20250308123742_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,9 +27,11 @@ namespace ToDoListApi.Infrastructure.Migrations
 
             modelBuilder.Entity("ToDoListApi.Domain.Entities.Priority", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -42,9 +44,11 @@ namespace ToDoListApi.Infrastructure.Migrations
 
             modelBuilder.Entity("ToDoListApi.Domain.Entities.Status", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -57,10 +61,11 @@ namespace ToDoListApi.Infrastructure.Migrations
 
             modelBuilder.Entity("ToDoListApi.Domain.Entities.ToDoTask", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
@@ -75,11 +80,11 @@ namespace ToDoListApi.Infrastructure.Migrations
                     b.Property<DateTime>("ModifiedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("PriorityId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("PriorityId")
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("StatusId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("StatusId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .IsRequired()

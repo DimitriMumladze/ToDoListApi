@@ -22,10 +22,6 @@ internal class ToDoListDbContext(DbContextOptions<ToDoListDbContext> options) : 
             .HasOne(p => p.Priority)
             .WithMany(s => s.ToDoTasks)
             .HasForeignKey(p => p.PriorityId);
-
-        modelBuilder.Entity<ToDoTask>()
-        .Property(t => t.Id)
-        .HasDefaultValueSql("NEWSEQUENTIALID()");
     }
 
 }

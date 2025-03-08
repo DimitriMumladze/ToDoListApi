@@ -1,4 +1,5 @@
 using ToDoListApi.Application.Extensions;
+using ToDoListApi.Domain.Repositories;
 using ToDoListApi.Infrastructure.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,7 @@ builder.Services.AddSwaggerGen();
 // Add your services BEFORE building the application
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
+
 
 // Build the application AFTER adding all services
 var app = builder.Build();

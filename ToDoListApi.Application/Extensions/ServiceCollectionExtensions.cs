@@ -1,6 +1,8 @@
 ﻿using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.Extensions.DependencyInjection;
+using ToDoListApi.Application.ToDoTasks.Queries.GetAllToDoTasks;
+using ToDoListApi.Domain.Repositories;
 
 namespace ToDoListApi.Application.Extensions;
 
@@ -10,7 +12,8 @@ public static class ServiceCollectionExtensions
     {
         var applicationAssembly = typeof(ServiceCollectionExtensions).Assembly;
 
-        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(applicationAssembly));
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetAllToDoTasksQueryHandler).Assembly));
+
 
         services.AddAutoMapper(applicationAssembly);
 
