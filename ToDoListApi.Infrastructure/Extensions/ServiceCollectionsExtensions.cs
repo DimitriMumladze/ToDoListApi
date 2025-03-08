@@ -9,7 +9,7 @@ public static class ServiceCollectionsExtensions
 {
     public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-        var connectionString = configuration.GetConnectionString("ToDoList");
+        var connectionString = configuration.GetConnectionString("ToDoListDb");
         services.AddDbContext<ToDoListDbContext>(options => options.UseSqlServer(connectionString));
     }
 }

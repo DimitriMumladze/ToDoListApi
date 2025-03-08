@@ -15,7 +15,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
     <ProjectReference Include="..\ToDoListApi.Application\ToDoListApi.Application.csproj" />
-
+  </ItemGroup>
+	
 
 </Project>

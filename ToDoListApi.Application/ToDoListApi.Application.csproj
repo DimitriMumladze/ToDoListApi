@@ -10,11 +10,11 @@
 		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
 		<PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
 		<PackageReference Include="MediatR" Version="12.4.1" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\ToDoListApi.Domain\ToDoListApi.Domain.csproj" />
+	  <ProjectReference Include="..\ToDoListApi.Domain\ToDoListApi.Domain.csproj" />
 	</ItemGroup>
+
 
 </Project>

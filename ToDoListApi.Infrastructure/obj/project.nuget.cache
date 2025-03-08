@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "/ScubSGFwms=",
-  "success": false,
+  "dgSpecHash": "oKFoV5FAftg=",
+  "success": true,
   "projectFilePath": "C:\\Users\\dimit\\Desktop\\ToDoListApi\\ToDoListApi.Infrastructure\\ToDoListApi.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dimit\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
@@ -26,25 +26,25 @@
     "C:\\Users\\dimit\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\dimit\\.nuget\\packages\\microsoft.data.sqlclient\\5.1.6\\microsoft.data.sqlclient.5.1.6.nupkg.sha512",
     "C:\\Users\\dimit\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\5.1.1\\microsoft.data.sqlclient.sni.runtime.5.1.1.nupkg.sha512",
-    "C:\\Users\\dimit\\.nuget\\packages\\microsoft.entityframeworkcore\\9.0.2\\microsoft.entityframeworkcore.9.0.2.nupkg.sha512",
-    "C:\\Users\\dimit\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\9.0.2\\microsoft.entityframeworkcore.abstractions.9.0.2.nupkg.sha512",
-    "C:\\Users\\dimit\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\9.0.2\\microsoft.entityframeworkcore.analyzers.9.0.2.nupkg.sha512",
+    "C:\\Users\\dimit\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.12\\microsoft.entityframeworkcore.8.0.12.nupkg.sha512",
+    "C:\\Users\\dimit\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.12\\microsoft.entityframeworkcore.abstractions.8.0.12.nupkg.sha512",
+    "C:\\Users\\dimit\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\8.0.12\\microsoft.entityframeworkcore.analyzers.8.0.12.nupkg.sha512",
     "C:\\Users\\dimit\\.nuget\\packages\\microsoft.entityframeworkcore.design\\8.0.12\\microsoft.entityframeworkcore.design.8.0.12.nupkg.sha512",
     "C:\\Users\\dimit\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\8.0.12\\microsoft.entityframeworkcore.relational.8.0.12.nupkg.sha512",
     "C:\\Users\\dimit\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\8.0.12\\microsoft.entityframeworkcore.sqlserver.8.0.12.nupkg.sha512",
     "C:\\Users\\dimit\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\8.0.12\\microsoft.entityframeworkcore.tools.8.0.12.nupkg.sha512",
-    "C:\\Users\\dimit\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\9.0.2\\microsoft.extensions.caching.abstractions.9.0.2.nupkg.sha512",
-    "C:\\Users\\dimit\\.nuget\\packages\\microsoft.extensions.caching.memory\\9.0.2\\microsoft.extensions.caching.memory.9.0.2.nupkg.sha512",
+    "C:\\Users\\dimit\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\8.0.0\\microsoft.extensions.caching.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\dimit\\.nuget\\packages\\microsoft.extensions.caching.memory\\8.0.1\\microsoft.extensions.caching.memory.8.0.1.nupkg.sha512",
     "C:\\Users\\dimit\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
-    "C:\\Users\\dimit\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\9.0.2\\microsoft.extensions.dependencyinjection.9.0.2.nupkg.sha512",
-    "C:\\Users\\dimit\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.2\\microsoft.extensions.dependencyinjection.abstractions.9.0.2.nupkg.sha512",
+    "C:\\Users\\dimit\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.1\\microsoft.extensions.dependencyinjection.8.0.1.nupkg.sha512",
+    "C:\\Users\\dimit\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.2\\microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
     "C:\\Users\\dimit\\.nuget\\packages\\microsoft.extensions.dependencymodel\\8.0.2\\microsoft.extensions.dependencymodel.8.0.2.nupkg.sha512",
     "C:\\Users\\dimit\\.nuget\\packages\\microsoft.extensions.identity.core\\8.0.12\\microsoft.extensions.identity.core.8.0.12.nupkg.sha512",
     "C:\\Users\\dimit\\.nuget\\packages\\microsoft.extensions.identity.stores\\8.0.12\\microsoft.extensions.identity.stores.8.0.12.nupkg.sha512",
-    "C:\\Users\\dimit\\.nuget\\packages\\microsoft.extensions.logging\\9.0.2\\microsoft.extensions.logging.9.0.2.nupkg.sha512",
-    "C:\\Users\\dimit\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
-    "C:\\Users\\dimit\\.nuget\\packages\\microsoft.extensions.options\\9.0.2\\microsoft.extensions.options.9.0.2.nupkg.sha512",
-    "C:\\Users\\dimit\\.nuget\\packages\\microsoft.extensions.primitives\\9.0.2\\microsoft.extensions.primitives.9.0.2.nupkg.sha512",
+    "C:\\Users\\dimit\\.nuget\\packages\\microsoft.extensions.logging\\8.0.1\\microsoft.extensions.logging.8.0.1.nupkg.sha512",
+    "C:\\Users\\dimit\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.2\\microsoft.extensions.logging.abstractions.8.0.2.nupkg.sha512",
+    "C:\\Users\\dimit\\.nuget\\packages\\microsoft.extensions.options\\8.0.2\\microsoft.extensions.options.8.0.2.nupkg.sha512",
+    "C:\\Users\\dimit\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
     "C:\\Users\\dimit\\.nuget\\packages\\microsoft.identity.client\\4.61.3\\microsoft.identity.client.4.61.3.nupkg.sha512",
     "C:\\Users\\dimit\\.nuget\\packages\\microsoft.identity.client.extensions.msal\\4.61.3\\microsoft.identity.client.extensions.msal.4.61.3.nupkg.sha512",
     "C:\\Users\\dimit\\.nuget\\packages\\microsoft.identitymodel.abstractions\\6.35.0\\microsoft.identitymodel.abstractions.6.35.0.nupkg.sha512",
@@ -93,33 +93,5 @@
     "C:\\Users\\dimit\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\dimit\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1104",
-      "level": "Error",
-      "message": "Unable to find project 'C:\\Users\\dimit\\Desktop\\ToDoListApi\\ToDoListApi.Domain\\ToDoListApi.Application.csproj'. Check that the project reference is valid and that the project file exists.",
-      "libraryId": "C:\\Users\\dimit\\Desktop\\ToDoListApi\\ToDoListApi.Domain\\ToDoListApi.Application.csproj",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    },
-    {
-      "code": "NU1605",
-      "level": "Error",
-      "message": "Warning As Error: Detected package downgrade: Microsoft.Extensions.Logging.Abstractions from 9.0.2 to 8.0.0. Reference the package directly from the project to select a different version. \r\n ToDoListApi.Infrastructure -> ToDoListApi.Application -> ToDoListApi.Domain -> Microsoft.EntityFrameworkCore 9.0.2 -> Microsoft.Extensions.Caching.Memory 9.0.2 -> Microsoft.Extensions.Logging.Abstractions (>= 9.0.2) \r\n ToDoListApi.Infrastructure -> ToDoListApi.Application -> Microsoft.Extensions.Logging.Abstractions (>= 8.0.0)",
-      "libraryId": "Microsoft.Extensions.Logging.Abstractions",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    },
-    {
-      "code": "NU1605",
-      "level": "Error",
-      "message": "Warning As Error: Detected package downgrade: Microsoft.Extensions.Logging.Abstractions from 9.0.2 to 8.0.0. Reference the package directly from the project to select a different version. \r\n ToDoListApi.Infrastructure -> ToDoListApi.Application -> ToDoListApi.Domain -> Microsoft.EntityFrameworkCore 9.0.2 -> Microsoft.Extensions.Logging 9.0.2 -> Microsoft.Extensions.Logging.Abstractions (>= 9.0.2) \r\n ToDoListApi.Infrastructure -> ToDoListApi.Application -> Microsoft.Extensions.Logging.Abstractions (>= 8.0.0)",
-      "libraryId": "Microsoft.Extensions.Logging.Abstractions",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    }
-  ]
+  "logs": []
 }

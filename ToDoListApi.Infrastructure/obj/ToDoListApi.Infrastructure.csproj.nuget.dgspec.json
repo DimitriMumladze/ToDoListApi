@@ -65,10 +65,6 @@
             "MediatR": {
               "target": "Package",
               "version": "[12.4.1, )"
-            },
-            "Microsoft.Extensions.Logging.Abstractions": {
-              "target": "Package",
-              "version": "[8.0.0, )"
             }
           },
           "imports": [
@@ -139,7 +135,7 @@
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[9.0.2, )"
+              "version": "[8.0.12, )"
             }
           },
           "imports": [
@@ -193,9 +189,6 @@
             "projectReferences": {
               "C:\\Users\\dimit\\Desktop\\ToDoListApi\\ToDoListApi.Application\\ToDoListApi.Application.csproj": {
                 "projectPath": "C:\\Users\\dimit\\Desktop\\ToDoListApi\\ToDoListApi.Application\\ToDoListApi.Application.csproj"
-              },
-              "C:\\Users\\dimit\\Desktop\\ToDoListApi\\ToDoListApi.Domain\\ToDoListApi.Application.csproj": {
-                "projectPath": "C:\\Users\\dimit\\Desktop\\ToDoListApi\\ToDoListApi.Domain\\ToDoListApi.Application.csproj"
               }
             }
           }

@@ -1,0 +1,13 @@
+C:\Users\dimit\Desktop\ToDoListApi\ToDoListApi.Domain\bin\Debug\net8.0\ToDoListApi.Domain.deps.json
+C:\Users\dimit\Desktop\ToDoListApi\ToDoListApi.Domain\bin\Debug\net8.0\ToDoListApi.Domain.dll
+C:\Users\dimit\Desktop\ToDoListApi\ToDoListApi.Domain\bin\Debug\net8.0\ToDoListApi.Domain.pdb
+C:\Users\dimit\Desktop\ToDoListApi\ToDoListApi.Domain\obj\Debug\net8.0\ToDoListApi.Domain.csproj.AssemblyReference.cache
+C:\Users\dimit\Desktop\ToDoListApi\ToDoListApi.Domain\obj\Debug\net8.0\ToDoListApi.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dimit\Desktop\ToDoListApi\ToDoListApi.Domain\obj\Debug\net8.0\ToDoListApi.Domain.AssemblyInfoInputs.cache
+C:\Users\dimit\Desktop\ToDoListApi\ToDoListApi.Domain\obj\Debug\net8.0\ToDoListApi.Domain.AssemblyInfo.cs
+C:\Users\dimit\Desktop\ToDoListApi\ToDoListApi.Domain\obj\Debug\net8.0\ToDoListApi.Domain.csproj.CoreCompileInputs.cache
+C:\Users\dimit\Desktop\ToDoListApi\ToDoListApi.Domain\obj\Debug\net8.0\ToDoListApi.Domain.sourcelink.json
+C:\Users\dimit\Desktop\ToDoListApi\ToDoListApi.Domain\obj\Debug\net8.0\ToDoListApi.Domain.dll
+C:\Users\dimit\Desktop\ToDoListApi\ToDoListApi.Domain\obj\Debug\net8.0\refint\ToDoListApi.Domain.dll
+C:\Users\dimit\Desktop\ToDoListApi\ToDoListApi.Domain\obj\Debug\net8.0\ToDoListApi.Domain.pdb
+C:\Users\dimit\Desktop\ToDoListApi\ToDoListApi.Domain\obj\Debug\net8.0\ref\ToDoListApi.Domain.dll
