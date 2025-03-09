@@ -19,7 +19,8 @@ public class GetAllToDoTasksQueryHandler : IRequestHandler<GetAllToDoTasksQuery,
     public async Task<IEnumerable<ToDoTaskDto>> Handle(GetAllToDoTasksQuery request, CancellationToken cancellationToken)
     {
         var toDoTasks = await _toDoTaskRepository.GetAllToDoTasksAsync(); 
-        return _mapper.Map<IEnumerable<ToDoTaskDto>>(toDoTasks);
+        var toDoTasksDto = _mapper.Map<IEnumerable<ToDoTaskDto>>(toDoTasks);
+        return toDoTasksDto;
     }
 }
 

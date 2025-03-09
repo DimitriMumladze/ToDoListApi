@@ -2,6 +2,7 @@
 using ToDoListApi.Domain.Repositories;
 using ToDoListApi.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using ToDoListApi.Application.ToDoTasks.Dtos;
 namespace ToDoListApi.Infrastructure.Repositories;
 
 internal class ToDoTasksRepository(ToDoListDbContext dbContext) : IToDoTasksRepository
@@ -18,13 +19,19 @@ internal class ToDoTasksRepository(ToDoListDbContext dbContext) : IToDoTasksRepo
 
     public async Task<IEnumerable<ToDoTask>> GetAllToDoTasksAsync()
     {
-        var tasks = await dbContext.ToDoTasks.ToListAsync();
+        var tasks = await dbContext.ToDoTasks
+            .Include(t => t.Priority) 
+            .Include(t => t.Status)    
+            .ToListAsync();   
+
         return tasks;
     }
 
-    public Task<ToDoTask?> GetToDoTaskByIdAsync(int id)
+    public async Task<ToDoTask?> GetToDoTaskByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        
+        var task = await dbContext.FindAsync<ToDoTask>(id);
+        return task;
     }
 
     public Task<bool> SoftDeleteToDoTaskAsync(int id)
