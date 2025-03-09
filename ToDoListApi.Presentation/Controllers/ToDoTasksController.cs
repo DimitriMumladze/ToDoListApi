@@ -4,13 +4,14 @@ using ToDoListApi.Application.ToDoTasks.Dtos;
 using ToDoListApi.Application.ToDoTasks.Queries.GetAllToDoTasks;
 
 namespace ToDoListApi.Presentation.Controllers;
-[Controller]
+[ApiController]
 [Route("api/toDoTasks")]
-public class ToDoTasksController(IMediator mediator) : Controller
+public class ToDoTasksController(IMediator mediator) : ControllerBase
 {
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<ToDoTaskDto>>> GetAll([FromRoute] GetAllToDoTasksQuery query)
+    public async Task<IActionResult> GetAll()
     {
+        GetAllToDoTasksQuery query = new GetAllToDoTasksQuery();
         var task = await mediator.Send(query);
         return Ok(task);
     }

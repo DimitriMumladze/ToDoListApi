@@ -1,5 +1,4 @@
 using ToDoListApi.Application.Extensions;
-using ToDoListApi.Domain.Repositories;
 using ToDoListApi.Infrastructure.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,10 +7,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Add your services BEFORE building the application
+// Register application and infrastructure services
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 
+// Register controllers
+builder.Services.AddControllers();
 
 // Build the application AFTER adding all services
 var app = builder.Build();
@@ -25,5 +26,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.Run();
+// Enable routing and controllers
+app.UseRouting();
+app.UseAuthorization();
+app.MapControllers(); 
 
+app.Run();
