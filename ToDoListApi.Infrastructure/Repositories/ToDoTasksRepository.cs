@@ -3,8 +3,6 @@ using ToDoListApi.Domain.Repositories;
 using ToDoListApi.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using ToDoListApi.Application.ToDoTasks.Dtos;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
-using System.Threading;
 namespace ToDoListApi.Infrastructure.Repositories;
 
 internal class ToDoTasksRepository(ToDoListDbContext dbContext) : IToDoTasksRepository
@@ -13,26 +11,23 @@ internal class ToDoTasksRepository(ToDoListDbContext dbContext) : IToDoTasksRepo
     {
         throw new NotImplementedException();
     }
-
-    public async Task<ToDoTask> CreateToDoTaskAsync(ToDoTaskDto toDoTaskDto)
+    private ToDoTask ConvertDtoToEntity(ToDoTaskDto toDoTaskDto)
     {
-        var toDoTask = new ToDoTask
+        return new ToDoTask
         {
             Title = toDoTaskDto.Title,
-            Description = toDoTaskDto.Description,
+            Description = toDoTaskDto.Description ?? "",
             DueToDate = toDoTaskDto.DueToDate,
-            CreationDate = DateTime.UtcNow, 
+            CreationDate = DateTime.UtcNow,
         };
-
+    }
+    public async Task<ToDoTask?> CreateToDoTaskAsync(ToDoTask toDoTask)
+    {
         dbContext.ToDoTasks.Add(toDoTask);
-        await dbContext.SaveChangesAsync(); 
+        await dbContext.SaveChangesAsync();
         return toDoTask;
     }
 
-    public Task<ToDoTask> CreateToDoTaskAsync(ToDoTask entity)
-    {
-        throw new NotImplementedException();
-    }
 
     public async Task<IEnumerable<ToDoTask>> GetAllToDoTasksAsync()
     {
