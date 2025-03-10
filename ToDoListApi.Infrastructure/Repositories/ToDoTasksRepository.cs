@@ -3,6 +3,8 @@ using ToDoListApi.Domain.Repositories;
 using ToDoListApi.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using ToDoListApi.Application.ToDoTasks.Dtos;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
+using System.Threading;
 namespace ToDoListApi.Infrastructure.Repositories;
 
 internal class ToDoTasksRepository(ToDoListDbContext dbContext) : IToDoTasksRepository
@@ -11,22 +13,25 @@ internal class ToDoTasksRepository(ToDoListDbContext dbContext) : IToDoTasksRepo
     {
         throw new NotImplementedException();
     }
-    // gadamapva minda amaze ro createis dros wamoigos kaata kvelaferi mtliani ogond using dto
-    public async Task<ToDoTask> CreateToDoTaskAsync(ToDoTask entity)
+
+    public async Task<ToDoTask> CreateToDoTaskAsync(ToDoTaskDto toDoTaskDto)
     {
         var toDoTask = new ToDoTask
         {
-            Title = ToDoTaskDto.Title,
+            Title = toDoTaskDto.Title,
             Description = toDoTaskDto.Description,
-            PriorityId = toDoTaskDto.PriorityId,
-            StatusId = toDoTaskDto.StatusId,
             DueToDate = toDoTaskDto.DueToDate,
-            CreationDate = DateTime.UtcNow,
-            ModifiedDate = DateTime.UtcNow
+            CreationDate = DateTime.UtcNow, 
         };
-        dbContext.ToDoTasks.Add(entity);
-        await dbContext.SaveChangesAsync();
-        return entity;
+
+        dbContext.ToDoTasks.Add(toDoTask);
+        await dbContext.SaveChangesAsync(); 
+        return toDoTask;
+    }
+
+    public Task<ToDoTask> CreateToDoTaskAsync(ToDoTask entity)
+    {
+        throw new NotImplementedException();
     }
 
     public async Task<IEnumerable<ToDoTask>> GetAllToDoTasksAsync()

@@ -24,4 +24,17 @@ internal class ToDoListDbContext(DbContextOptions<ToDoListDbContext> options) : 
             .HasForeignKey(p => p.PriorityId);
     }
 
+    public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+    {
+        foreach (var entry in ChangeTracker.Entries<ToDoTask>())
+        {
+            if (entry.State == EntityState.Modified)
+            {
+                entry.Entity.ModifiedDate = DateTime.UtcNow;
+            }
+        }
+
+        return await base.SaveChangesAsync(cancellationToken);
+    }
+
 }

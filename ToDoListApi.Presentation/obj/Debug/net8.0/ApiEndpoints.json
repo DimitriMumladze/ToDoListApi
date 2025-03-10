@@ -11,6 +11,32 @@
   },
   {
     "ContainingType": "ToDoListApi.Presentation.Controllers.ToDoTasksController",
+    "Method": "CreateRestaurant",
+    "RelativePath": "api/toDoTasks",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "ToDoListApi.Application.ToDoTasks.Commands.ToDoTaskSingleCreate.ToDoTasksSingleCreateCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ToDoListApi.Application.ToDoTasks.Dtos.ToDoTaskDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ToDoListApi.Presentation.Controllers.ToDoTasksController",
     "Method": "GetById",
     "RelativePath": "api/toDoTasks/{id}",
     "HttpMethod": "GET",

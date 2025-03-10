@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using ToDoListApi.Application.ToDoTasks.Dtos;
+using ToDoListApi.Domain.Entities;
 using ToDoListApi.Domain.Repositories;
 
 namespace ToDoListApi.Application.ToDoTasks.Commands.ToDoTaskSingleCreate;
@@ -19,8 +20,10 @@ public class ToDoTasksSingleCreateCommandHandler : IRequestHandler<ToDoTasksSing
 
     public async Task<ToDoTaskDto?> Handle(ToDoTasksSingleCreateCommand request, CancellationToken cancellationToken)
     {
-        var toDoTaskCreate = await _toDoTaskRepository.CreateToDoTaskAsync(request);
-        var toDoTask = _mapper.Map<ToDoTaskDto>(request);
+        var todoTaskEntity = _mapper.Map<ToDoTask>(request);
+        var createdToDoTask = await _toDoTaskRepository.CreateToDoTaskAsync(todoTaskEntity);
+        var toDoTaskDto = _mapper.Map<ToDoTaskDto?>(createdToDoTask);
 
+        return toDoTaskDto;
     }
 }

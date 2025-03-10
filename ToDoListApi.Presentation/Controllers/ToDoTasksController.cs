@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using ToDoListApi.Application.ToDoTasks.Commands.ToDoTaskSingleCreate;
 using ToDoListApi.Application.ToDoTasks.Dtos;
 using ToDoListApi.Application.ToDoTasks.Queries.GetAllToDoTasks;
 using ToDoListApi.Application.ToDoTasks.Queries.GetByIdToDoTasks;
@@ -23,5 +24,13 @@ public class ToDoTasksController(IMediator mediator) : ControllerBase
         var query = new GetByIdToDoTasksQuery(id);
         var task = await mediator.Send(query);
         return Ok(task);
+    }
+
+    [HttpPatch]
+    public async Task<ToDoTaskDto?> CreateRestaurant(ToDoTasksSingleCreateCommand command)
+    {
+        command = new ToDoTasksSingleCreateCommand();
+        var task = await mediator.Send(command);
+        return task;
     }
 }
