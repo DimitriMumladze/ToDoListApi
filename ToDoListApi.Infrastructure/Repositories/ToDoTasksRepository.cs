@@ -12,7 +12,7 @@ internal class ToDoTasksRepository(ToDoListDbContext dbContext) : IToDoTasksRepo
         throw new NotImplementedException();
     }
 
-    public async Task<ToDoTask?> CreateToDoTaskAsync(ToDoTask toDoTask)
+    public async Task<ToDoTask?> CreateToDoTaskAsync(ToDoTask? toDoTask)
     {
         dbContext.ToDoTasks.Add(toDoTask);
         await dbContext.SaveChangesAsync();

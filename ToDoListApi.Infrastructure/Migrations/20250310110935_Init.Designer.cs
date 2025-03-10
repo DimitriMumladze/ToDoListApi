@@ -12,7 +12,7 @@ using ToDoListApi.Infrastructure.Persistence;
 namespace ToDoListApi.Infrastructure.Migrations
 {
     [DbContext(typeof(ToDoListDbContext))]
-    [Migration("20250308123742_Init")]
+    [Migration("20250310110935_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -34,7 +34,6 @@ namespace ToDoListApi.Infrastructure.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -51,7 +50,6 @@ namespace ToDoListApi.Infrastructure.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -71,7 +69,6 @@ namespace ToDoListApi.Infrastructure.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DueToDate")
@@ -87,7 +84,6 @@ namespace ToDoListApi.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

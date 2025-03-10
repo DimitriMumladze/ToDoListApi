@@ -13,7 +13,7 @@
     "ContainingType": "ToDoListApi.Presentation.Controllers.ToDoTasksController",
     "Method": "CreateRestaurant",
     "RelativePath": "api/toDoTasks",
-    "HttpMethod": "PATCH",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
