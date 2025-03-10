@@ -6,7 +6,7 @@ using ToDoListApi.Domain.Repositories;
 
 namespace ToDoListApi.Application.ToDoTasks.Commands.ToDoTaskSingleCreate;
 
-public class ToDoTasksSingleCreateCommandHandler : IRequestHandler<ToDoTasksSingleCreateCommand, ToDoTaskDto?>
+public class ToDoTasksSingleCreateCommandHandler : IRequestHandler<ToDoTasksSingleCreateCommand, int >
 {
   
     private readonly IMapper _mapper;
@@ -18,22 +18,23 @@ public class ToDoTasksSingleCreateCommandHandler : IRequestHandler<ToDoTasksSing
         _toDoTaskRepository = toDoTaskRepository;
     }
 
-    public async Task<ToDoTaskDto?> Handle(ToDoTasksSingleCreateCommand request, CancellationToken cancellationToken)
+    public async Task<int> Handle(ToDoTasksSingleCreateCommand request, CancellationToken cancellationToken)
     {
-        var toDoTaskEntity = new ToDoTask
+        request = new ToDoTasksSingleCreateCommand
         {
+            Id = request.Id,
             Title = request.Title,
+            Description = request.Description,
             PriorityId = request.PriorityId,
             StatusId = request.StatusId,
-            Description = request.Description,
             CreationDate = request.CreationDate,
             DueToDate = request.DueToDate,
             ModifiedDate = request.ModifiedDate
         };
 
-        var toDoTaskCreate = await _toDoTaskRepository.CreateToDoTaskAsync(toDoTaskEntity);
-        var toDoTaskDto = _mapper.Map<ToDoTaskDto?>(request);
+        var toDoTask = _mapper.Map<ToDoTask>(request);
+        int id = await _toDoTaskRepository.CreateToDoTaskAsync(toDoTask);
 
-        return toDoTaskDto;
+        return id;
     }
 }

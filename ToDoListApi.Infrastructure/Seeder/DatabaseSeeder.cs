@@ -1,5 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using ToDoListApi.Domain.Entities;
 using ToDoListApi.Infrastructure.Persistence;
 
@@ -19,18 +23,25 @@ namespace ToDoListApi.Infrastructure.Seeder
             if (!await context.Priorities.AnyAsync())
             {
                 await SeedPrioritiesAsync(context);
+                Console.WriteLine("Priorities seeded successfully.");
             }
 
             // Seed statuses if none exist
             if (!await context.Statuses.AnyAsync())
             {
                 await SeedStatusesAsync(context);
+                Console.WriteLine("Statuses seeded successfully.");
             }
 
             // Seed todo tasks if none exist
             if (!await context.ToDoTasks.AnyAsync())
             {
+                // Important: Save changes after seeding priorities and statuses
+                // to ensure they have IDs before referencing them in ToDoTasks
+                await context.SaveChangesAsync();
+
                 await SeedToDoTasksAsync(context);
+                Console.WriteLine("ToDoTasks seeded successfully.");
             }
         }
 
@@ -65,8 +76,26 @@ namespace ToDoListApi.Infrastructure.Seeder
 
         private static async Task SeedToDoTasksAsync(ToDoListDbContext context)
         {
+            // Get existing priority and status IDs
             var priorities = await context.Priorities.ToListAsync();
             var statuses = await context.Statuses.ToListAsync();
+
+            // Make sure we have data before proceeding
+            if (!priorities.Any() || !statuses.Any())
+            {
+                Console.WriteLine("Cannot seed ToDo tasks: Priorities or Statuses not found in database.");
+                return;
+            }
+
+            var lowPriorityId = priorities.First(p => p.Name == "Low").Id;
+            var mediumPriorityId = priorities.First(p => p.Name == "Medium").Id;
+            var highPriorityId = priorities.First(p => p.Name == "High").Id;
+            var criticalPriorityId = priorities.First(p => p.Name == "Critical").Id;
+
+            var todoStatusId = statuses.First(s => s.Name == "To Do").Id;
+            var inProgressStatusId = statuses.First(s => s.Name == "In Progress").Id;
+            var onHoldStatusId = statuses.First(s => s.Name == "On Hold").Id;
+            var completedStatusId = statuses.First(s => s.Name == "Completed").Id;
 
             var currentDate = DateTime.UtcNow;
 
@@ -76,8 +105,8 @@ namespace ToDoListApi.Infrastructure.Seeder
                 {
                     Title = "Complete project documentation",
                     Description = "Finish writing the API documentation with examples",
-                    PriorityId = priorities.First(p => p.Name == "High").Id,
-                    StatusId = statuses.First(s => s.Name == "To Do").Id,
+                    PriorityId = highPriorityId,
+                    StatusId = todoStatusId,
                     CreationDate = currentDate,
                     ModifiedDate = currentDate,
                     DueToDate = currentDate.AddDays(5)
@@ -86,8 +115,8 @@ namespace ToDoListApi.Infrastructure.Seeder
                 {
                     Title = "Fix login bug",
                     Description = "Resolve the authentication issue reported in JIRA ticket #1234",
-                    PriorityId = priorities.First(p => p.Name == "Critical").Id,
-                    StatusId = statuses.First(s => s.Name == "In Progress").Id,
+                    PriorityId = criticalPriorityId,
+                    StatusId = inProgressStatusId,
                     CreationDate = currentDate.AddDays(-2),
                     ModifiedDate = currentDate,
                     DueToDate = currentDate.AddDays(1)
@@ -96,8 +125,8 @@ namespace ToDoListApi.Infrastructure.Seeder
                 {
                     Title = "Create unit tests",
                     Description = "Write unit tests for the new TaskController methods",
-                    PriorityId = priorities.First(p => p.Name == "Medium").Id,
-                    StatusId = statuses.First(s => s.Name == "To Do").Id,
+                    PriorityId = mediumPriorityId,
+                    StatusId = todoStatusId,
                     CreationDate = currentDate,
                     ModifiedDate = currentDate,
                     DueToDate = currentDate.AddDays(7)
@@ -106,8 +135,8 @@ namespace ToDoListApi.Infrastructure.Seeder
                 {
                     Title = "Review pull requests",
                     Description = "Review and approve team pull requests for the new feature",
-                    PriorityId = priorities.First(p => p.Name == "Medium").Id,
-                    StatusId = statuses.First(s => s.Name == "In Progress").Id,
+                    PriorityId = mediumPriorityId,
+                    StatusId = inProgressStatusId,
                     CreationDate = currentDate.AddDays(-1),
                     ModifiedDate = currentDate,
                     DueToDate = currentDate.AddDays(2)
@@ -116,8 +145,8 @@ namespace ToDoListApi.Infrastructure.Seeder
                 {
                     Title = "Database optimization",
                     Description = "Optimize database queries to improve API response time",
-                    PriorityId = priorities.First(p => p.Name == "Low").Id,
-                    StatusId = statuses.First(s => s.Name == "On Hold").Id,
+                    PriorityId = lowPriorityId,
+                    StatusId = onHoldStatusId,
                     CreationDate = currentDate.AddDays(-5),
                     ModifiedDate = currentDate,
                     DueToDate = currentDate.AddDays(14)
@@ -126,8 +155,8 @@ namespace ToDoListApi.Infrastructure.Seeder
                 {
                     Title = "Deploy to staging",
                     Description = "Deploy the latest changes to the staging environment",
-                    PriorityId = priorities.First(p => p.Name == "High").Id,
-                    StatusId = statuses.First(s => s.Name == "Completed").Id,
+                    PriorityId = highPriorityId,
+                    StatusId = completedStatusId,
                     CreationDate = currentDate.AddDays(-3),
                     ModifiedDate = currentDate.AddDays(-1),
                     DueToDate = currentDate.AddDays(-1)
@@ -139,4 +168,3 @@ namespace ToDoListApi.Infrastructure.Seeder
         }
     }
 }
-

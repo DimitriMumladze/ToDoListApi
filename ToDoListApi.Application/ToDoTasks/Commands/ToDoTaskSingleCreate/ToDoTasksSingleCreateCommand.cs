@@ -5,8 +5,9 @@ using ToDoListApi.Domain.Entities;
 
 namespace ToDoListApi.Application.ToDoTasks.Commands.ToDoTaskSingleCreate;
 
-public class ToDoTasksSingleCreateCommand : IRequest<ToDoTaskDto?>
+public class ToDoTasksSingleCreateCommand : IRequest<int>
 {
+    public int Id { get; set; }
     public string Title { get; set; }
     public int PriorityId { get; set; }
     public int StatusId { get; set; }

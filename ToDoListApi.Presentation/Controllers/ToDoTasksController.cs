@@ -27,7 +27,7 @@ public class ToDoTasksController(IMediator mediator) : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<ToDoTaskDto?>> CreateRestaurant(ToDoTasksSingleCreateCommand command)
+    public async Task<ActionResult<int>> CreateRestaurant(ToDoTasksSingleCreateCommand command)
     {
         command = new ToDoTasksSingleCreateCommand();
         var task = await mediator.Send(command);
