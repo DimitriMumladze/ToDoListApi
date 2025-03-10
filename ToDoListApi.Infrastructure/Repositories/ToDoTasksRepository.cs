@@ -11,10 +11,22 @@ internal class ToDoTasksRepository(ToDoListDbContext dbContext) : IToDoTasksRepo
     {
         throw new NotImplementedException();
     }
-
-    public Task<ToDoTask> CreateToDoTaskAsync(ToDoTask entity)
+    // gadamapva minda amaze ro createis dros wamoigos kaata kvelaferi mtliani ogond using dto
+    public async Task<ToDoTask> CreateToDoTaskAsync(ToDoTask entity)
     {
-        throw new NotImplementedException();
+        var toDoTask = new ToDoTask
+        {
+            Title = ToDoTaskDto.Title,
+            Description = toDoTaskDto.Description,
+            PriorityId = toDoTaskDto.PriorityId,
+            StatusId = toDoTaskDto.StatusId,
+            DueToDate = toDoTaskDto.DueToDate,
+            CreationDate = DateTime.UtcNow,
+            ModifiedDate = DateTime.UtcNow
+        };
+        dbContext.ToDoTasks.Add(entity);
+        await dbContext.SaveChangesAsync();
+        return entity;
     }
 
     public async Task<IEnumerable<ToDoTask>> GetAllToDoTasksAsync()
