@@ -20,9 +20,19 @@ public class ToDoTasksSingleCreateCommandHandler : IRequestHandler<ToDoTasksSing
 
     public async Task<ToDoTaskDto?> Handle(ToDoTasksSingleCreateCommand request, CancellationToken cancellationToken)
     {
-        var todoTaskEntity = _mapper.Map<ToDoTask>(request);
-        var createdToDoTask = await _toDoTaskRepository.CreateToDoTaskAsync(todoTaskEntity);
-        var toDoTaskDto = _mapper.Map<ToDoTaskDto?>(createdToDoTask);
+        var toDoTaskEntity = new ToDoTask
+        {
+            Title = request.Title,
+            PriorityId = request.PriorityId,
+            StatusId = request.StatusId,
+            Description = request.Description,
+            CreationDate = request.CreationDate,
+            DueToDate = request.DueToDate,
+            ModifiedDate = request.ModifiedDate
+        };
+
+        var toDoTaskCreate = await _toDoTaskRepository.CreateToDoTaskAsync(toDoTaskEntity);
+        var toDoTaskDto = _mapper.Map<ToDoTaskDto?>(request);
 
         return toDoTaskDto;
     }

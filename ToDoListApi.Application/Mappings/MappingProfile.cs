@@ -12,6 +12,5 @@ public class MappingProfile : Profile
         CreateMap<ToDoTask, ToDoTaskDto>().ReverseMap();
         CreateMap<Priority, PriorityDto>().ReverseMap();
         CreateMap<Status, StatusDto>().ReverseMap();
-        CreateMap<ToDoTasksSingleCreateCommand, ToDoTask>().ReverseMap();
     }
 }

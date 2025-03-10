@@ -11,16 +11,7 @@ internal class ToDoTasksRepository(ToDoListDbContext dbContext) : IToDoTasksRepo
     {
         throw new NotImplementedException();
     }
-    private ToDoTask ConvertDtoToEntity(ToDoTaskDto toDoTaskDto)
-    {
-        return new ToDoTask
-        {
-            Title = toDoTaskDto.Title,
-            Description = toDoTaskDto.Description ?? "",
-            DueToDate = toDoTaskDto.DueToDate,
-            CreationDate = DateTime.UtcNow,
-        };
-    }
+
     public async Task<ToDoTask?> CreateToDoTaskAsync(ToDoTask toDoTask)
     {
         dbContext.ToDoTasks.Add(toDoTask);
