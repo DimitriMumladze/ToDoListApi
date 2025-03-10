@@ -20,17 +20,20 @@ internal class ToDoTasksRepository(ToDoListDbContext dbContext) : IToDoTasksRepo
     public async Task<IEnumerable<ToDoTask>> GetAllToDoTasksAsync()
     {
         var tasks = await dbContext.ToDoTasks
-            .Include(t => t.Priority) 
-            .Include(t => t.Status)    
-            .ToListAsync();   
+        .Include(t => t.Priority)
+        .Include(t => t.Status)
+        .ToListAsync();
 
         return tasks;
     }
 
     public async Task<ToDoTask?> GetToDoTaskByIdAsync(int id)
     {
-        
-        var task = await dbContext.FindAsync<ToDoTask>(id);
+        var task = await dbContext.ToDoTasks
+        .Include(t => t.Priority)
+        .Include(t => t.Status)
+        .FirstOrDefaultAsync(t => t.Id == id);
+
         return task;
     }
 
