@@ -13,7 +13,8 @@ public static class ServiceCollectionsExtensions
     {
         var connectionString = configuration.GetConnectionString("ToDoListDb");
         services.AddDbContext<ToDoListDbContext>(options => options.UseSqlServer(connectionString));
-
+        //aq xom ar aklia ramis damateba netav?
+        //kargad unda gaviazrot sheqmnis command
         services.AddScoped<IToDoTasksRepository, ToDoTasksRepository>();
 
     }
