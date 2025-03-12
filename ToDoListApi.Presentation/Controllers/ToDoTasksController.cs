@@ -4,6 +4,7 @@ using ToDoListApi.Application.ToDoTasks.Commands.ToDoTaskSingleCreate;
 using ToDoListApi.Domain.Entities;
 using ToDoListApi.Application.ToDoTasks.Queries.GetAllToDoTasks;
 using ToDoListApi.Application.ToDoTasks.Queries.GetByIdToDoTasks;
+using ToDoListApi.Application.ToDoTasks.Commands.ToDoTaskDelete;
 
 namespace ToDoListApi.Presentation.Controllers;
 [ApiController]
@@ -27,9 +28,17 @@ public class ToDoTasksController(IMediator mediator) : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateRestaurant([FromBody]ToDoTasksSingleCreateCommand command)
+    public async Task<IActionResult> CreateToDoTask([FromBody]ToDoTasksSingleCreateCommand command)
     {
         await mediator.Send(command);
-        return Ok();
+        return StatusCode(201);
     }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteToDoTask([FromRoute] int id)
+    {
+        await mediator.Send(new ToDoTaskDeleteCommand(id));
+        return NoContent();
+    }
+
 }

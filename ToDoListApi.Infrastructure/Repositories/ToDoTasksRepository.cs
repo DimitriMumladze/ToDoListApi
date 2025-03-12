@@ -7,16 +7,20 @@ namespace ToDoListApi.Infrastructure.Repositories;
 
 internal class ToDoTasksRepository(ToDoListDbContext dbContext) : IToDoTasksRepository
 {
-    public Task<bool> BulkCreateToDoTasksAsync(ICollection<ToDoTask> toDoTasks)
-    {
-        throw new NotImplementedException();
-    }
-
     public async Task<int> CreateToDoTaskAsync(ToDoTask? entity)
     {
         dbContext.ToDoTasks.Add(entity);
         await dbContext.SaveChangesAsync();
         return entity.Id;
+    }
+
+    public async Task DeleteToDoTaskAsync(ToDoTask? entity)
+    {
+        //Error
+        var toDoTask = await GetToDoTaskByIdAsync(entity.Id);
+
+        dbContext.ToDoTasks.Remove(toDoTask);
+        await dbContext.SaveChangesAsync();
     }
 
     public async Task<ICollection<ToDoTask>> GetAllToDoTasksAsync()
@@ -29,18 +33,12 @@ internal class ToDoTasksRepository(ToDoListDbContext dbContext) : IToDoTasksRepo
         return tasks;
     }
 
-    public async Task<ToDoTask?> GetToDoTaskByIdAsync(int id)
+    public async Task<ToDoTask?>? GetToDoTaskByIdAsync(int id)
     {
         var task = await dbContext.ToDoTasks
         .Include(t => t.Priority)
         .Include(t => t.Status)
         .FirstOrDefaultAsync(t => t.Id == id);
-
         return task;
-    }
-
-    public Task<bool> SoftDeleteToDoTaskAsync(int id)
-    {
-        throw new NotImplementedException();
     }
 }

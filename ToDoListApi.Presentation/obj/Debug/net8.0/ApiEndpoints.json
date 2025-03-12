@@ -11,7 +11,7 @@
   },
   {
     "ContainingType": "ToDoListApi.Presentation.Controllers.ToDoTasksController",
-    "Method": "CreateRestaurant",
+    "Method": "CreateToDoTask",
     "RelativePath": "api/toDoTasks",
     "HttpMethod": "POST",
     "IsController": true,
@@ -50,5 +50,21 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "ToDoListApi.Presentation.Controllers.ToDoTasksController",
+    "Method": "DeleteToDoTask",
+    "RelativePath": "api/toDoTasks/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]
