@@ -7,19 +7,19 @@ namespace ToDoListApi.Infrastructure.Repositories;
 
 internal class ToDoTasksRepository(ToDoListDbContext dbContext) : IToDoTasksRepository
 {
-    public Task<bool> BulkCreateToDoTasksAsync(IEnumerable<ToDoTask> toDoTasks)
+    public Task<bool> BulkCreateToDoTasksAsync(ICollection<ToDoTaskDto> toDoTasks)
     {
         throw new NotImplementedException();
     }
 
-    public async Task<int> CreateToDoTaskAsync(ToDoTask? entity)
+    public async Task<int> CreateToDoTaskAsync(ToDoTaskDto? entity)
     {
         dbContext.ToDoTasks.Add(entity);
         await dbContext.SaveChangesAsync();
         return entity.Id;
     }
 
-    public async Task<IEnumerable<ToDoTask>> GetAllToDoTasksAsync()
+    public async Task<ICollection<ToDoTask>> GetAllToDoTasksAsync()
     {
         var tasks = await dbContext.ToDoTasks
         .Include(t => t.Priority)
