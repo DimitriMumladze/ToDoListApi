@@ -23,17 +23,7 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Int32",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "ToDoListApi.Presentation.Controllers.ToDoTasksController",
@@ -51,7 +41,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "ToDoListApi.Application.ToDoTasks.Dtos.ToDoTaskDto",
+        "Type": "ToDoListApi.Domain.Entities.ToDoTaskDto",
         "MediaTypes": [
           "text/plain",
           "application/json",

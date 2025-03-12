@@ -1,7 +1,4 @@
 ﻿using MediatR;
-using System.Windows.Input;
-using ToDoListApi.Application.ToDoTasks.Dtos;
-using ToDoListApi.Domain.Entities;
 
 namespace ToDoListApi.Application.ToDoTasks.Commands.ToDoTaskSingleCreate;
 

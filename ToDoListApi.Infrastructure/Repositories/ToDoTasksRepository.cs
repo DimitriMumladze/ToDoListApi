@@ -2,17 +2,17 @@
 using ToDoListApi.Domain.Repositories;
 using ToDoListApi.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using ToDoListApi.Application.ToDoTasks.Dtos;
+
 namespace ToDoListApi.Infrastructure.Repositories;
 
 internal class ToDoTasksRepository(ToDoListDbContext dbContext) : IToDoTasksRepository
 {
-    public Task<bool> BulkCreateToDoTasksAsync(ICollection<ToDoTaskDto> toDoTasks)
+    public Task<bool> BulkCreateToDoTasksAsync(ICollection<ToDoTask> toDoTasks)
     {
         throw new NotImplementedException();
     }
 
-    public async Task<int> CreateToDoTaskAsync(ToDoTaskDto? entity)
+    public async Task<int> CreateToDoTaskAsync(ToDoTask? entity)
     {
         dbContext.ToDoTasks.Add(entity);
         await dbContext.SaveChangesAsync();

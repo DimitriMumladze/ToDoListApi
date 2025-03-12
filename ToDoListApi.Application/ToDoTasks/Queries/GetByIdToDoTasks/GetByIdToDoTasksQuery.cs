@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using ToDoListApi.Application.ToDoTasks.Dtos;
+using ToDoListApi.Domain.Entities;
 
 namespace ToDoListApi.Application.ToDoTasks.Queries.GetByIdToDoTasks;
 

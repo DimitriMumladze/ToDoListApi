@@ -1,6 +1,4 @@
-﻿using ToDoListApi.Domain.Entities;
-
-namespace ToDoListApi.Application.ToDoTasks.Dtos;
+﻿namespace ToDoListApi.Domain.Entities;
 
 public class ToDoTaskDto
 {

@@ -2,7 +2,6 @@
 using FluentValidation.AspNetCore;
 using Microsoft.Extensions.DependencyInjection;
 using ToDoListApi.Application.ToDoTasks.Queries.GetAllToDoTasks;
-using ToDoListApi.Domain.Repositories;
 
 namespace ToDoListApi.Application.Extensions;
 

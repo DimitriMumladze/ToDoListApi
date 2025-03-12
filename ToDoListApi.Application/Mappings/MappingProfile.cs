@@ -1,6 +1,4 @@
 ﻿using AutoMapper;
-using ToDoListApi.Application.ToDoTasks.Commands.ToDoTaskSingleCreate;
-using ToDoListApi.Application.ToDoTasks.Dtos;
 using ToDoListApi.Domain.Entities;
 
 namespace ToDoListApi.Application.Mappings;

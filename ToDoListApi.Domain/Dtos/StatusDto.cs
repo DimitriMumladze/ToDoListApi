@@ -1,7 +1,5 @@
 ﻿using ToDoListApi.Domain.Entities;
 
-namespace ToDoListApi.Application.ToDoTasks.Dtos;
-
 public class StatusDto
 {
     public int Id { get; set; }

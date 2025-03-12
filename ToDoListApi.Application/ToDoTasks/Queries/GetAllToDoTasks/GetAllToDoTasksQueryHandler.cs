@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
-using ToDoListApi.Application.ToDoTasks.Dtos;
+using ToDoListApi.Domain.Entities;
 using ToDoListApi.Domain.Repositories;
 
 namespace ToDoListApi.Application.ToDoTasks.Queries.GetAllToDoTasks;
