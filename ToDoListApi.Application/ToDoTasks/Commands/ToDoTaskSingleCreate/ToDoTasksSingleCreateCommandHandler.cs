@@ -25,8 +25,6 @@ public class ToDoTasksSingleCreateCommandHandler : IRequestHandler<ToDoTasksSing
             Title = request.Title,
             PriorityId = request.PriorityId,
             StatusId = request.StatusId,
-            CreationDate = request.CreationDate,
-            ModifiedDate = request.ModifiedDate
         };
 
         return await _toDoTaskRepository.CreateToDoTaskAsync(toDoItem);

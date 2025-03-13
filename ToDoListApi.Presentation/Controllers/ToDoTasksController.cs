@@ -30,8 +30,8 @@ public class ToDoTasksController(IMediator mediator) : ControllerBase
     [HttpPost]
     public async Task<IActionResult> CreateToDoTask([FromBody]ToDoTasksSingleCreateCommand command)
     {
-        await mediator.Send(command);
-        return StatusCode(201);
+        int id = await mediator.Send(command); 
+        return CreatedAtAction(nameof(GetById), new { id }, null);
     }
 
     [HttpDelete("{id}")]

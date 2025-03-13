@@ -9,7 +9,9 @@ public class ToDoTasksSingleCreateCommand : IRequest<int>
     public int PriorityId { get; set; }
     public int StatusId { get; set; }
     public string Description { get; set; }
-    public DateTime CreationDate { get; set; }
+    // How to date time now
+    public DateTime CreationDate { get; set; } = DateTime.Now;
     public DateTime DueToDate { get; set; }
+    // How to modify time now
     public DateTime ModifiedDate { get; set; }
 }
