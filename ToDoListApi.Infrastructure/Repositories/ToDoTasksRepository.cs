@@ -7,7 +7,7 @@ namespace ToDoListApi.Infrastructure.Repositories;
 
 internal class ToDoTasksRepository(ToDoListDbContext dbContext) : IToDoTasksRepository
 {
-    public async Task<int> CreateToDoTaskAsync(ToDoTask? entity)
+    public async Task<int> CreateToDoTaskAsync(ToDoTask entity)
     {
         dbContext.ToDoTasks.Add(entity);
         await dbContext.SaveChangesAsync();
@@ -16,9 +16,8 @@ internal class ToDoTasksRepository(ToDoListDbContext dbContext) : IToDoTasksRepo
 
     public async Task DeleteToDoTaskAsync(ToDoTask? entity)
     {
-        //Error
+        
         var toDoTask = await GetToDoTaskByIdAsync(entity.Id);
-
         dbContext.ToDoTasks.Remove(toDoTask);
         await dbContext.SaveChangesAsync();
     }
@@ -33,7 +32,7 @@ internal class ToDoTasksRepository(ToDoListDbContext dbContext) : IToDoTasksRepo
         return tasks;
     }
 
-    public async Task<ToDoTask?>? GetToDoTaskByIdAsync(int id)
+    public async Task<ToDoTask?> GetToDoTaskByIdAsync(int id)
     {
         var task = await dbContext.ToDoTasks
         .Include(t => t.Priority)

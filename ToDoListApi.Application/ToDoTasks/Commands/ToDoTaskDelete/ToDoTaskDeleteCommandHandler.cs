@@ -1,23 +1,23 @@
-﻿using AutoMapper;
-using MediatR;
+﻿using MediatR;
+using ToDoListApi.Domain.Entities;
+using ToDoListApi.Domain.Exceptions;
 using ToDoListApi.Domain.Repositories;
 
 namespace ToDoListApi.Application.ToDoTasks.Commands.ToDoTaskDelete;
 
 public class ToDoTaskDeleteCommandHandler : IRequestHandler<ToDoTaskDeleteCommand>
 {
-    private readonly IMapper _mapper;
     private readonly IToDoTasksRepository _toDoTaskRepository;
 
-    public ToDoTaskDeleteCommandHandler(IMapper mapper, IToDoTasksRepository toDoTaskRepository)
+    public ToDoTaskDeleteCommandHandler(IToDoTasksRepository toDoTaskRepository)
     {
-        _mapper = mapper;
         _toDoTaskRepository = toDoTaskRepository;
     }
     public async Task Handle(ToDoTaskDeleteCommand request, CancellationToken cancellationToken)
     {
-        var toDoTask = await _toDoTaskRepository.GetToDoTaskByIdAsync(request.Id);
+        var toDoTaskById = await _toDoTaskRepository.GetToDoTaskByIdAsync(request.Id)
+            ?? throw new NotFoundException(nameof(ToDoTask), request.Id.ToString());
 
-        await _toDoTaskRepository.DeleteToDoTaskAsync(toDoTask);
+        await _toDoTaskRepository.DeleteToDoTaskAsync(toDoTaskById);
     }
 }
