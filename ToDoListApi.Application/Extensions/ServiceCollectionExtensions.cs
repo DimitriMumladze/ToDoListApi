@@ -13,7 +13,6 @@ public static class ServiceCollectionExtensions
 
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetAllToDoTasksQueryHandler).Assembly));
 
-
         services.AddAutoMapper(applicationAssembly);
 
         services.AddValidatorsFromAssembly(applicationAssembly)

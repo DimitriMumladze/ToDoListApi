@@ -5,7 +5,7 @@ using ToDoListApi.Domain.Repositories;
 
 namespace ToDoListApi.Application.ToDoTasks.Queries.GetAllToDoTasks;
 
-public class GetAllToDoTasksQueryHandler : IRequestHandler<GetAllToDoTasksQuery, IEnumerable<ToDoTaskDto>>
+public class GetAllToDoTasksQueryHandler : IRequestHandler<GetAllToDoTasksQuery, ICollection<ToDoTaskDto>?>
 {
     private readonly IMapper _mapper;
     private readonly IToDoTasksRepository _toDoTaskRepository;
@@ -16,10 +16,10 @@ public class GetAllToDoTasksQueryHandler : IRequestHandler<GetAllToDoTasksQuery,
         _toDoTaskRepository = toDoTaskRepository;
     }
 
-    public async Task<IEnumerable<ToDoTaskDto>> Handle(GetAllToDoTasksQuery request, CancellationToken cancellationToken)
+    public async Task<ICollection<ToDoTaskDto>?> Handle(GetAllToDoTasksQuery request, CancellationToken cancellationToken)
     {
         var toDoTasks = await _toDoTaskRepository.GetAllToDoTasksAsync(); 
-        var toDoTasksDto = _mapper.Map<IEnumerable<ToDoTaskDto>>(toDoTasks);
+        var toDoTasksDto = _mapper.Map<ICollection<ToDoTaskDto>?>(toDoTasks);
         return toDoTasksDto;
     }
 }

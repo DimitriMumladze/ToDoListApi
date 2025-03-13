@@ -1,5 +1,4 @@
-﻿
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
 namespace ToDoListApi.Domain.Entities;
 
@@ -9,5 +8,5 @@ public class Priority
     public string? Name { get; set; }
 
     [JsonIgnore] 
-    public virtual ICollection<ToDoTask?>? ToDoTasks { get; set; }
+    public virtual ICollection<ToDoTask>? ToDoTasks { get; set; }
 }

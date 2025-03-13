@@ -23,7 +23,7 @@ internal class ToDoTasksRepository(ToDoListDbContext dbContext) : IToDoTasksRepo
         await dbContext.SaveChangesAsync();
     }
 
-    public async Task<ICollection<ToDoTask>> GetAllToDoTasksAsync()
+    public async Task<ICollection<ToDoTask>?> GetAllToDoTasksAsync()
     {
         var tasks = await dbContext.ToDoTasks
         .Include(t => t.Priority)

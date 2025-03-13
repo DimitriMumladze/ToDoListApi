@@ -9,5 +9,5 @@ public class Status
     public string? Name { get; set; }
 
     [JsonIgnore]
-    public virtual ICollection<ToDoTask?>? ToDoTasks { get; set; }
+    public virtual ICollection<ToDoTask>? ToDoTasks { get; set; }
 }
